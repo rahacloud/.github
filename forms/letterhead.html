@@ -106,20 +106,17 @@
         border: 2px solid var(--amber);
         pointer-events: none;
       }
-      .logo-mark img {
-        width: 78%;
-        height: auto;
-        object-fit: contain;
-        margin-top: 2px;
+      .logo-mark svg {
+        width: 100%;
+        height: 100%;
+        display: block;
       }
-      .logo-mark .brand {
-        margin-top: 4px;
-        font-size: 10.5pt;
+      .logo-mark .brand-text {
+        font-family: "Vazirmatn", "Vazir", Tahoma, sans-serif;
+        font-size: 15px;
         font-weight: 700;
-        color: var(--saffron);
-        text-align: center;
-        line-height: 1.3;
-        letter-spacing: 0.2px;
+        fill: var(--saffron);
+        letter-spacing: 0.4px;
       }
 
       /* ===== Dashed inner border ===== */
@@ -298,7 +295,21 @@
 
       <!-- logo circle -->
       <div class="logo-mark">
-        <img src="../logo/logo-fa.png" alt="رایانش هوشمند ابر رها" />
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- bottom arc, traced left-to-right through the bottom of the circle.
+                 RTL bidi places ر at the right end and ا at the left end, so the
+                 text reads correctly for a Persian reader and stays upright. -->
+            <path id="brand-curve" d="M 24 100 A 76 76 0 0 0 176 100" fill="none" />
+          </defs>
+          <image
+            href="../logo/logo.png"
+            x="35" y="30" width="130" height="80"
+            preserveAspectRatio="xMidYMid meet" />
+          <text class="brand-text" dir="rtl">
+            <textPath href="#brand-curve" startOffset="50%" text-anchor="middle">رایانش هوشمند ابر رها</textPath>
+          </text>
+        </svg>
       </div>
 
       <!-- form meta fields -->
