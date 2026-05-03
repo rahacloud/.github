@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>سربرگ رسمی — رایانش هوشمند ابر رها</title>
-    <link
-      rel="stylesheet"
-      href="https://v1.fontapi.ir/css/Vazirmatn"
-    />
+    <link rel="stylesheet" href="https://v1.fontapi.ir/css/Vazirmatn" />
     <style>
       :root {
         --saffron: #e56b0e;
@@ -58,18 +55,6 @@
         );
         border-bottom-left-radius: 60px 40px;
       }
-      .top-bar::after {
-        content: "";
-        position: absolute;
-        bottom: -14px;
-        left: 0;
-        right: 120px;
-        height: 14px;
-        background: linear-gradient(270deg, var(--amber), var(--honey));
-        opacity: 0.55;
-        border-bottom-left-radius: 40px 14px;
-      }
-
       /* ===== Right vertical accent ===== */
       .right-accent {
         position: absolute;
@@ -89,13 +74,10 @@
         height: 175px;
         border-radius: 50%;
         background: var(--paper);
-        border: 3px dashed var(--saffron);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 16px rgba(229, 107, 14, 0.18);
-        padding: 10px;
         z-index: 2;
       }
       .logo-mark::before {
@@ -127,7 +109,7 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        font-size: 12pt;
+        font-size: 10pt;
         color: var(--ink);
       }
       .meta .row {
@@ -136,14 +118,14 @@
         gap: 10px;
       }
       .meta .label {
-        width: 60px;
-        font-weight: 700;
+        width: 40px;
+        font-weight: 300;
       }
       .meta .field {
         min-width: 180px;
         border-bottom: 1px dotted #999;
         padding: 2px 6px;
-        min-height: 18px;
+        min-height: 5px;
       }
 
       /* ===== Body content area ===== */
@@ -271,7 +253,7 @@
 
       <!-- watermark logo -->
       <div class="watermark">
-        <img src="../logo/logo.png" alt="" />
+        <img src="logo-trim.png" alt="" />
       </div>
 
       <!-- logo circle -->
@@ -281,14 +263,28 @@
             <!-- bottom arc, traced left-to-right through the bottom of the circle.
                  RTL bidi places ر at the right end and ا at the left end, so the
                  text reads correctly for a Persian reader and stays upright. -->
-            <path id="brand-curve" d="M 24 100 A 76 76 0 0 0 176 100" fill="none" />
+            <path
+              id="brand-curve"
+              d="M 24 100 A 76 76 0 0 0 176 100"
+              fill="none"
+            />
           </defs>
           <image
-            href="../logo/logo.png"
-            x="3" y="18" width="194" height="135"
-            preserveAspectRatio="xMidYMid meet" />
+            href="logo-trim.png"
+            x="20"
+            y="22"
+            width="160"
+            height="100"
+            preserveAspectRatio="xMidYMid meet"
+          />
           <text class="brand-text" dir="rtl">
-            <textPath href="#brand-curve" startOffset="50%" text-anchor="middle">رایانش هوشمند ابر رها</textPath>
+            <textPath
+              href="#brand-curve"
+              startOffset="50%"
+              text-anchor="middle"
+            >
+              رایانش هوشمند ابر رها
+            </textPath>
           </text>
         </svg>
       </div>
@@ -320,7 +316,10 @@
         <div class="col right">
           <div class="item">
             <span class="icon"></span>
-            <span>تهران، توحید، کوچه آرمان، کوچه برادران شهید مسعود عارف احمدی، پلاک ۱۲، طبقه ۳</span>
+            <span
+              >تهران، توحید، کوچه آرمان، کوچه برادران شهید مسعود عارف احمدی،
+              پلاک ۱۲، طبقه ۳</span
+            >
           </div>
           <div class="item">
             <span class="icon"></span>
