@@ -1,0 +1,7 @@
+<svg viewBox="0 0 672 421" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Watermark wrapper: same cloud mark, rendered at very low opacity.
+       Typst has no per-image opacity primitive, so we bake it in via SVG. -->
+  <image href="logo-trim.png" xlink:href="logo-trim.png"
+         x="0" y="0" width="672" height="421"
+         preserveAspectRatio="xMidYMid meet" opacity="0.045" />
+</svg>

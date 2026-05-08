@@ -1,0 +1,34 @@
+# Regenerate letterhead artifacts.
+# Requires: typst, ImageMagick (`magick`).
+
+logo_src := justfile_directory() / "../logo/logo.png"
+logo_trim := justfile_directory() / "logo-trim.png"
+typ := justfile_directory() / "letterhead.typ"
+pdf := justfile_directory() / "letterhead.pdf"
+
+# Default: re-trim logo if needed, then compile the letterhead.
+default: render
+
+# Re-crop the cloud logo to its alpha bbox (skipped if up-to-date).
+trim:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [[ ! -f "{{logo_trim}}" || "{{logo_src}}" -nt "{{logo_trim}}" ]]; then
+      echo "Trimming $(basename {{logo_src}}) -> $(basename {{logo_trim}})"
+      bbox=$(magick "{{logo_src}}" -channel A -threshold 5% -format "%@" info:)
+      magick "{{logo_src}}" -crop "$bbox" +repage "{{logo_trim}}"
+    fi
+
+# Compile the Typst letterhead to PDF.
+render: trim
+    @echo "Compiling $(basename {{typ}}) -> $(basename {{pdf}})"
+    typst compile "{{typ}}" "{{pdf}}"
+    @ls -lh "{{pdf}}"
+
+# Live-rebuild the PDF on save.
+watch: trim
+    typst watch "{{typ}}" "{{pdf}}"
+
+# Remove generated artifacts.
+clean:
+    rm -f "{{pdf}}" "{{logo_trim}}"

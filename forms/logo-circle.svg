@@ -1,0 +1,28 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- bottom arc, traced left-to-right through the bottom of the circle.
+         RTL bidi places ر at the right end and ا at the left end, so the
+         text reads correctly for a Persian reader and stays upright. -->
+    <path id="brand-curve" d="M 24 100 A 76 76 0 0 0 176 100" fill="none" />
+  </defs>
+
+  <!-- white disc -->
+  <circle cx="100" cy="100" r="100" fill="#ffffff" />
+  <!-- inner amber ring -->
+  <circle cx="100" cy="100" r="94" fill="none" stroke="#f5a021" stroke-width="2" />
+
+  <!-- cloud mark -->
+  <image href="logo-trim.png" xlink:href="logo-trim.png"
+         x="20" y="22" width="160" height="100"
+         preserveAspectRatio="xMidYMid meet" />
+
+  <!-- curved brand text -->
+  <text font-family="Vazirmatn, Vazir, Tahoma, sans-serif"
+        font-size="15" font-weight="700"
+        fill="#e56b0e" letter-spacing="0.4" dir="rtl">
+    <textPath href="#brand-curve" xlink:href="#brand-curve"
+              startOffset="50%" text-anchor="middle">
+      رایانش هوشمند ابر رها
+    </textPath>
+  </text>
+</svg>
