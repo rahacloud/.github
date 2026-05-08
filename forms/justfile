@@ -1,12 +1,13 @@
 # Regenerate letterhead artifacts.
 # Requires: typst, ImageMagick (`magick`).
 
-logo_src := justfile_directory() / "../logo/logo.png"
+logo_src  := justfile_directory() / "../logo/logo.png"
 logo_trim := justfile_directory() / "logo-trim.png"
-typ := justfile_directory() / "letterhead.typ"
-pdf := justfile_directory() / "letterhead.pdf"
 
-# Default: re-trim logo if needed, then compile the letterhead.
+# Documents compiled by `just render` — one Typst source per name.
+docs := "letterhead letter-saman"
+
+# Default: re-trim logo if needed, then compile every document.
 default: render
 
 # Re-crop the cloud logo to its alpha bbox (skipped if up-to-date).
@@ -19,16 +20,23 @@ trim:
       magick "{{logo_src}}" -crop "$bbox" +repage "{{logo_trim}}"
     fi
 
-# Compile the Typst letterhead to PDF.
+# Compile every Typst document listed in `docs` to PDF.
 render: trim
-    @echo "Compiling $(basename {{typ}}) -> $(basename {{pdf}})"
-    typst compile "{{typ}}" "{{pdf}}"
-    @ls -lh "{{pdf}}"
+    #!/usr/bin/env bash
+    set -euo pipefail
+    for d in {{docs}}; do
+      echo "Compiling $d.typ -> $d.pdf"
+      typst compile "$d.typ" "$d.pdf"
+    done
+    ls -lh *.pdf
 
-# Live-rebuild the PDF on save.
-watch: trim
-    typst watch "{{typ}}" "{{pdf}}"
+# Live-rebuild a single document on save. Usage: `just watch letterhead`.
+watch doc=("letterhead"): trim
+    typst watch "{{doc}}.typ" "{{doc}}.pdf"
 
 # Remove generated artifacts.
 clean:
-    rm -f "{{pdf}}" "{{logo_trim}}"
+    #!/usr/bin/env bash
+    set -euo pipefail
+    for d in {{docs}}; do rm -f "$d.pdf"; done
+    rm -f "{{logo_trim}}"
