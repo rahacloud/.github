@@ -1,0 +1,29 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- bottom arc, traced left-to-right through the bottom of the circle.
+         LTR text sits upright on top of the path and reads R-A-H-A C-L-O-U-D
+         from the left end to the right end — the English sibling of the
+         Persian curved wordmark in logo-circle.svg. -->
+    <path id="brand-curve-en" d="M 24 100 A 76 76 0 0 0 176 100" fill="none" />
+  </defs>
+
+  <!-- white disc -->
+  <circle cx="100" cy="100" r="100" fill="#ffffff" />
+  <!-- inner amber ring -->
+  <circle cx="100" cy="100" r="94" fill="none" stroke="#f5a021" stroke-width="2" />
+
+  <!-- cloud mark (shared with the Persian medallion) -->
+  <image href="logo-trim.png" xlink:href="logo-trim.png"
+         x="20" y="22" width="160" height="100"
+         preserveAspectRatio="xMidYMid meet" />
+
+  <!-- curved brand text -->
+  <text font-family="Vazirmatn, Vazir, Tahoma, sans-serif"
+        font-size="16" font-weight="700"
+        fill="#e56b0e" letter-spacing="3" dir="ltr">
+    <textPath href="#brand-curve-en" xlink:href="#brand-curve-en"
+              startOffset="50%" text-anchor="middle">
+      RAHA CLOUD
+    </textPath>
+  </text>
+</svg>
