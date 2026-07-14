@@ -106,6 +106,97 @@
   doc
 }
 
+// ── English letterhead ──────────────────────────────────────────────
+// LTR sibling of the Persian chrome above, for English-facing documents
+// (proposals, letters). Same brand system, mirrored: medallion top-left,
+// meta fields top-right, English wordmark (logo-circle-en.svg) and labels.
+
+#let _meta-row-en(label, value: none) = grid(
+  columns: (46 * px, 174 * px),
+  column-gutter: 10 * px,
+  rows: 16 * px,
+  align: (left + bottom, bottom),
+  text(size: 10pt, weight: "light", label),
+  box(
+    height: 16 * px, width: 100%,
+    inset: (bottom: 2 * px),
+    stroke: (bottom: (paint: muted, thickness: 0.5pt, dash: "dotted")),
+    if value != none { text(size: 10pt, value) } else { [] },
+  ),
+)
+
+#let _chrome-en(date: none, number: none, attachment: none) = {
+  // top decorative bar — saffron → amber → honey, LTR (saffron by the medallion)
+  place(top + left,
+    rect(width: 210mm, height: 70 * px,
+      fill: gradient.linear(saffron, amber, honey, angle: 0deg)))
+
+  // left vertical accent strip
+  place(top + left, dy: 70 * px,
+    rect(width: 14 * px, height: 297mm - 70 * px - 110 * px,
+      fill: gradient.linear(amber, saffron, angle: 90deg)))
+
+  // logo medallion (English wordmark)
+  place(top + left, dx: 30 * px, dy: 14 * px,
+    box(width: 175 * px, height: 175 * px,
+      image("logo-circle-en.svg", width: 100%)))
+
+  // form meta fields (top-right, LTR labels)
+  place(top + right, dx: -50 * px, dy: 110 * px,
+    text(lang: "en", dir: ltr,
+      stack(spacing: 10 * px,
+        _meta-row-en("Date:",  value: date),
+        _meta-row-en("Ref.:",  value: number),
+        _meta-row-en("Att.:",  value: attachment),
+      )))
+
+  // footer gradient ribbon
+  place(top + left, dy: 297mm - 110 * px,
+    rect(width: 100%, height: 4 * px,
+      fill: gradient.linear(silver, sage, honey, amber, saffron, angle: 0deg)))
+
+  let dot = box(width: 8 * px, height: 8 * px, radius: 4 * px, fill: saffron)
+
+  // address, bottom-left
+  let addr-row(body) = grid(columns: (8 * px, 1fr), column-gutter: 8 * px,
+    align: (horizon, horizon + left), dot, body)
+
+  place(bottom + left, dx: 56 * px, dy: -18 * px,
+    block(width: 360 * px,
+      text(size: 10.5pt, dir: ltr, lang: "en",
+        stack(spacing: 8 * px,
+          addr-row[No. 12, 3rd Floor, Masoud Aref Ahmadi Alley, Arman Alley, Tohid, Tehran, Iran],
+          addr-row[Postal Code: 1457833654 · +98 21 6657 2481],
+        ))))
+
+  // contacts, bottom-right
+  let contact-row(body) = grid(columns: (1fr, 8 * px), column-gutter: 8 * px,
+    align: (horizon + right, horizon), body, dot)
+
+  place(bottom + right, dx: -56 * px, dy: -18 * px,
+    block(width: 220 * px,
+      text(size: 10.5pt, dir: ltr, lang: "en",
+        stack(spacing: 8 * px,
+          contact-row[info\@rahacloud.com],
+          contact-row[rahacloud.com],
+        ))))
+}
+
+#let letterhead-en(date: none, number: none, attachment: none, doc) = {
+  set page(
+    paper: "a4",
+    margin: (top: body-top, bottom: body-bottom, left: body-side, right: body-side),
+    background: {
+      place(center + horizon,
+        rotate(-22deg, image("logo-watermark.svg", width: 380 * px)))
+      _chrome-en(date: date, number: number, attachment: attachment)
+    },
+  )
+  set text(font: "Vazirmatn", lang: "en", dir: ltr, fill: ink, size: 12pt)
+  set par(justify: true, leading: 1em)
+  doc
+}
+
 // Ruled writing surface for the blank letterhead variant.
 #let ruled-body = {
   let body-w = 210mm - 2 * body-side
