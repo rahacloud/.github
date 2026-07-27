@@ -165,6 +165,7 @@
     block(width: 360 * px,
       text(size: 10.5pt, dir: ltr, lang: "en",
         stack(spacing: 8 * px,
+          text(weight: "bold", fill: ink)[Rayanesh Hooshmand Abr Raha Company (Ltd.)],
           addr-row[No. 12, 3rd Floor, Masoud Aref Ahmadi Alley, Arman Alley, Tohid, Tehran, Iran],
           addr-row[Postal Code: 1457833654 · +98 21 6657 2481],
         ))))
