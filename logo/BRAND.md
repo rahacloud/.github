@@ -6,10 +6,14 @@ Official logo and brand guidelines for **Raha Cloud** (رایانش ابر هو�
 
 | File | Description |
 | --- | --- |
-| `logo.png` | Master logo — full-color cloud mark, no wordmark. |
+| `logo-1.png` | Master logo — full-color cloud mark, no wordmark, generous clear space. |
+| `logo-2.png` | Same mark, tighter crop — for constrained layouts. |
 | `logo-en.png` | Logo with English wordmark *Raha Cloud*. |
 | `logo-fa.png` | Logo with Persian wordmark *ابر رها*. |
 | `logo-official.png` | Flat black official logo with full company name *رایانش ابر هوشمند رها*. |
+| `avatar.png` | 512×512 square avatar cropped from `logo-2.png` — GitHub, Slack, and other profile pictures. |
+| `<partner>-rahacloud.png` | Co-branding lockups pairing a partner or client mark with ours. |
+| `../banner/banner-*.jpg` | Wide banners (2172×724) for profile pages, social cards, and slide decks. |
 
 ## Official colors
 
@@ -41,7 +45,8 @@ saffron     amber       honey       sage         silver
 
 ## Usage
 
-- Use `logo.png` or `logo-en.png` / `logo-fa.png` on light backgrounds.
+- Use `logo-1.png` / `logo-2.png` or `logo-en.png` / `logo-fa.png` on light backgrounds.
+- Use `avatar.png` wherever a square profile picture is required — do not re-crop the mark by hand.
 - Use `logo-official.png` for legal documents, letterheads, stamps, and any single-color (black & white) reproduction such as faxes, embossing, or engraving.
 - Always preserve clear space around the mark equal to at least the height of the wordmark.
 - Do not recolor, distort, rotate, or apply effects to the mark.
