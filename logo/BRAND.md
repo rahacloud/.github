@@ -12,7 +12,8 @@ Official logo and brand guidelines for **Raha Cloud** (رایانش ابر هو�
 | `logo-fa.png` | Logo with Persian wordmark *ابر رها*. |
 | `logo-official.png` | Flat black official logo with full company name *رایانش ابر هوشمند رها*. |
 | `avatar.png` | 512×512 square avatar cropped from `logo-2.png` — GitHub, Slack, and other profile pictures. |
-| `<partner>-rahacloud.png` | Co-branding lockups pairing a partner or client mark with ours. |
+| `clients/<slug>.png` | A client or partner's own mark, normalized to the tile spec below. Powers the logo wall on the org profile. |
+| `lockups/<slug>.png` | Co-branding lockup pairing that client or partner's mark with ours. For decks, proposals, and joint announcements — not for the logo wall. |
 | `../banner/banner-*.jpg` | Wide banners (2172×724) for profile pages, social cards, and slide decks. |
 
 ## Official colors
@@ -43,6 +44,31 @@ saffron     amber       honey       sage         silver
 - **Latin wordmark:** Avenir Next (Bold) — clean, geometric, modern.
 - **Persian wordmark:** [Vazirmatn](https://github.com/rastikerdar/vazirmatn) (Bold) — open-source Persian typeface, successor to Vazir.
 
+## Client and partner marks
+
+Every tile in `clients/` follows one spec so the logo wall on the org profile stays even as it grows:
+
+| Property | Value |
+| --- | --- |
+| Canvas | 600×400, pure white `#FFFFFF` |
+| Placement | Mark centred, no caption baked in — the name is markdown in the README |
+| Scale | Optically balanced, capped at 540×340 |
+| Naming | `clients/<slug>.png`, lowercase slug matching `lockups/<slug>.png` |
+
+Scaling is the part worth explaining. Fitting each mark to its bounding box makes a wide wordmark such as TalaLand tower over a tall stacked lockup such as Hamravesh, because the wide one gets to use the full width while the tall one is squeezed by the height. Scaling purely by ink area overcorrects and inflates thin line art. `normalize-mark.py` blends the two and then clamps, which is what keeps the four current marks reading at the same weight.
+
+### Adding a client
+
+Ask for the highest-resolution logo the client has — SVG or a large PNG on a plain background is ideal — then run:
+
+```sh
+./normalize-mark.py path/to/their-logo.png <slug>
+```
+
+Pass `--crop WxH+X+Y` when the source has the mark embedded in a larger image, such as pulling a client's half out of an existing co-branding lockup. Then add a cell to the **Clients** (or **Partners**) table in `profile/README.md` pointing at `logo/clients/<slug>.png`.
+
+Requires Python with Pillow and ImageMagick (`magick`).
+
 ## Usage
 
 - Use `logo-1.png` / `logo-2.png` or `logo-en.png` / `logo-fa.png` on light backgrounds.
@@ -50,3 +76,4 @@ saffron     amber       honey       sage         silver
 - Use `logo-official.png` for legal documents, letterheads, stamps, and any single-color (black & white) reproduction such as faxes, embossing, or engraving.
 - Always preserve clear space around the mark equal to at least the height of the wordmark.
 - Do not recolor, distort, rotate, or apply effects to the mark.
+- Never recolor, redraw, or restyle a client's mark in `clients/` — reproduce it as they supply it. The tile spec governs canvas and scale only.

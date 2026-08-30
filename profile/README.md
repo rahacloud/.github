@@ -65,14 +65,31 @@ A few things we build in the open:
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 
-## Working together
+## Clients
+
+Teams who trust us with their infrastructure.
 
 <table>
   <tr>
-    <td align="center" width="150"><img src="https://raw.githubusercontent.com/rahacloud/.github/main/logo/hamravesh-rahacloud.png" alt="Hamravesh × Raha Cloud" width="130"></td>
-    <td align="center" width="150"><img src="https://raw.githubusercontent.com/rahacloud/.github/main/logo/bitbarg-rahacloud.png" alt="BitBarg × Raha Cloud" width="130"></td>
-    <td align="center" width="150"><img src="https://raw.githubusercontent.com/rahacloud/.github/main/logo/talaland-rahacloud.png" alt="TalaLand × Raha Cloud" width="130"></td>
-    <td align="center" width="150"><img src="https://raw.githubusercontent.com/rahacloud/.github/main/logo/sepid-rahacloud.png" alt="Sepid × Raha Cloud" width="130"></td>
+    <td align="center" width="170"><img src="https://raw.githubusercontent.com/rahacloud/.github/main/logo/clients/bitbarg.png" alt="Bitbarg" width="150"></td>
+    <td align="center" width="170"><img src="https://raw.githubusercontent.com/rahacloud/.github/main/logo/clients/talaland.png" alt="TalaLand" width="150"></td>
+    <td align="center" width="170"><img src="https://raw.githubusercontent.com/rahacloud/.github/main/logo/clients/sepid.png" alt="Sepid" width="150"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Bitbarg</b></td>
+    <td align="center"><b>TalaLand</b></td>
+    <td align="center"><b>Sepid</b></td>
+  </tr>
+</table>
+
+## Partners
+
+<table>
+  <tr>
+    <td align="center" width="170"><img src="https://raw.githubusercontent.com/rahacloud/.github/main/logo/clients/hamravesh.png" alt="Hamravesh" width="150"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Hamravesh</b><br><sub>Partnership program</sub></td>
   </tr>
 </table>
 
