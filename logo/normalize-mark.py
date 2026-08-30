@@ -25,11 +25,29 @@ HARD_BOX = (540, 340)  # nothing may exceed this, whatever the blend says
 TARGET_INK = 24_000  # target ink pixels after scaling, for the area term
 INK_THRESHOLD = 235  # luminance below this counts as ink, not background
 TRIM_FUZZ = "8%"  # tolerance for trimming the off-white source backgrounds
+BG_FUZZ = "6%"  # tolerance for repainting that background to pure white
+
+
+def corner_color(src: Path) -> str:
+    """Sample the top-left pixel — sources carry a flat, near-white background."""
+    out = subprocess.run(
+        ["magick", str(src), "-format", "%[pixel:p{0,0}]", "info:"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return out.stdout.strip()
 
 
 def trim(src: Path, dst: Path, crop: str | None) -> None:
-    """Crop to the region of interest and strip surrounding background."""
-    cmd = ["magick", str(src)]
+    """Flatten the source background to white, crop to the mark, and trim.
+
+    Sources are rendered on off-white rather than pure white. Trimming alone
+    keeps that off-white inside the bounding box, which then shows as a visible
+    rectangle once the mark is pasted onto a white tile — so repaint it first.
+    """
+    cmd = ["magick", str(src), "-fuzz", BG_FUZZ, "-fill", "white"]
+    cmd += ["-opaque", corner_color(src)]
     if crop:
         cmd += ["-crop", crop, "+repage"]
     cmd += ["-fuzz", TRIM_FUZZ, "-trim", "+repage", str(dst)]
