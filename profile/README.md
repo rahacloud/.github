@@ -75,12 +75,14 @@ Teams who trust us with their infrastructure.
     <td align="center" width="170"><img src="https://raw.githubusercontent.com/rahacloud/.github/main/logo/clients/talaland.png" alt="TalaLand" width="150"></td>
     <td align="center" width="170"><img src="https://raw.githubusercontent.com/rahacloud/.github/main/logo/clients/sepid.png" alt="Sepid" width="150"></td>
     <td align="center" width="170"><img src="https://raw.githubusercontent.com/rahacloud/.github/main/logo/clients/talano.png" alt="Talano" width="150"></td>
+    <td align="center" width="170"><img src="https://raw.githubusercontent.com/rahacloud/.github/main/logo/clients/azki.png" alt="Azki" width="150"></td>
   </tr>
   <tr>
     <td align="center"><b>Bitbarg</b></td>
     <td align="center"><b>TalaLand</b></td>
     <td align="center"><b>Sepid</b></td>
     <td align="center"><b>Talano</b></td>
+    <td align="center"><b>Azki</b></td>
   </tr>
 </table>
 
