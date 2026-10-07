@@ -14,6 +14,7 @@ Official logo and brand guidelines for **Raha Cloud** (رایانش ابر هو�
 | `avatar.png` | 512×512 square avatar cropped from `logo-2.png` — GitHub, Slack, and other profile pictures. |
 | `clients/<slug>.png` | A client or partner's own mark, normalized to the tile spec below. Powers the logo wall on the org profile. |
 | `lockups/<slug>.png` | Co-branding lockup pairing that client or partner's mark with ours. For decks, proposals, and joint announcements — not for the logo wall. |
+| `lockups/<slug>-hamravesh.png` | Three-way lockup with Hamravesh, for clients we serve through the Hamravesh partnership. `azki.png` predates this naming and is the three-way version. |
 | `../banner/banner-*.jpg` | Wide banners (2172×724) for profile pages, social cards, and slide decks. |
 
 ## Official colors
